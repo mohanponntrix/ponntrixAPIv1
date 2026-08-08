@@ -1,0 +1,17 @@
+# IDE / Editor Files
+.idea/
+*.iml
+.vscode/
+
+# Build Directories & Artifacts
+**/target/
+**/*.class
+**/*.jar
+**/*.war
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
