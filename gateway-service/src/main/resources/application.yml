@@ -1,0 +1,15 @@
+server:
+  port: 8090
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://eureka-admin:eureka-admin123@localhost:8100/eureka/
+
+spring:
+  application:
+   name: gateway-service
