@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class LabController {
 
     @GetMapping
-    private String test(){
+    public String test(){
         return  "lab controller";
     }
 }
