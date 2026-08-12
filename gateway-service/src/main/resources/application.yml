@@ -10,6 +10,44 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka-admin:eureka-admin123@localhost:8100/eureka/
 
+jwt:
+  rsa:
+    public-key: classpath:public_key.pem
+
 spring:
   application:
    name: gateway-service
+
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: admin-user-service-auth
+            uri: lb://ADMIN-USER-SERVICE
+            predicates:
+              - Path=/api/user/auth/**
+
+          - id: admin-user-service-users
+            uri: lb://ADMIN-USER-SERVICE
+            predicates:
+              - Path=/api/user/**
+
+          - id: hospital-service
+            uri: lb://HOSPITAL-SERVICE
+            predicates:
+              - Path=/api/hospitals/**
+
+          - id: lab-service
+            uri: lb://LAB-SERVICE
+            predicates:
+              - Path=/api/labs/**
+
+          - id: appointment-service
+            uri: lb://APPOINTMENT-SERVICE
+            predicates:
+              - Path=/api/appointments/**
+
+          - id: notification-service
+            uri: lb://NOTIFICATION-SERVICE
+            predicates:
+              - Path=/api/notifications/**
