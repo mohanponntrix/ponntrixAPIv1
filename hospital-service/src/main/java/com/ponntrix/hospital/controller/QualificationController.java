@@ -32,9 +32,7 @@ public class QualificationController {
     // Get All Qualifications
     @GetMapping
     public ResponseEntity<List<QualificationResponseDto>> getAllQualifications() {
-
-        return ResponseEntity.ok(
-                qualificationService.getAllQualifications());
+        return ResponseEntity.ok(qualificationService.getAllQualifications());
     }
 
     // Get Qualification By Id

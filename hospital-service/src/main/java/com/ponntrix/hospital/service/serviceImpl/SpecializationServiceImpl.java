@@ -1,7 +1,9 @@
 package com.ponntrix.hospital.service.serviceImpl;
 
+import com.ponntrix.hospital.entity.Qualification;
 import com.ponntrix.hospital.entity.Specialization;
 import com.ponntrix.hospital.mapper.SpecializationMapper;
+import com.ponntrix.hospital.repository.QualificationRepository;
 import com.ponntrix.hospital.repository.SpecializationRepository;
 import com.ponntrix.hospital.dto.requestDto.SpecializationRequestDto;
 import com.ponntrix.hospital.dto.responseDto.SpecializationResponseDto;
@@ -16,23 +18,24 @@ import java.util.List;
 public class SpecializationServiceImpl implements SpecializationService {
 
     private final SpecializationRepository specializationRepository;
+    private final QualificationRepository qualificationRepository;
 
     @Override
     public SpecializationResponseDto createSpecialization(SpecializationRequestDto dto) {
 
+        Qualification qualification = qualificationRepository
+                .findById(dto.getQualificationId())
+                .orElseThrow(() ->
+                        new RuntimeException("Qualification not found"));
         if (specializationRepository
                 .existsBySpecializationNameIgnoreCase(
                         dto.getSpecializationName())) {
 
-            throw new RuntimeException(
-                    "Specialization already exists.");
+            throw new RuntimeException("Specialization already exists.");
         }
 
-        Specialization specialization =
-                SpecializationMapper.toEntity(dto);
-
-        Specialization saved =
-                specializationRepository.save(specialization);
+        Specialization specialization = SpecializationMapper.toEntity(dto,qualification);
+        Specialization saved = specializationRepository.save(specialization);
 
         return SpecializationMapper.toDto(saved);
     }

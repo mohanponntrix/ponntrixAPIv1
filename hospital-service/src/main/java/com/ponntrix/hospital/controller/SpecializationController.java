@@ -21,23 +21,20 @@ public class SpecializationController {
     public ResponseEntity<SpecializationResponseDto> createSpecialization(
             @RequestBody SpecializationRequestDto dto) {
 
-        return ResponseEntity.ok(
-                specializationService.createSpecialization(dto));
+        return ResponseEntity.ok(specializationService.createSpecialization(dto));
     }
 
     @GetMapping
     public ResponseEntity<List<SpecializationResponseDto>> getAllSpecializations() {
 
-        return ResponseEntity.ok(
-                specializationService.getAllSpecializations());
+        return ResponseEntity.ok(specializationService.getAllSpecializations());
     }
 
     @GetMapping("/{specializationId}")
     public ResponseEntity<SpecializationResponseDto> getSpecializationById(
             @PathVariable Integer specializationId) {
 
-        return ResponseEntity.ok(
-                specializationService.getSpecializationById(specializationId));
+        return ResponseEntity.ok(specializationService.getSpecializationById(specializationId));
     }
 
     @PutMapping("/{specializationId}")
@@ -45,19 +42,12 @@ public class SpecializationController {
             @PathVariable Integer specializationId,
             @RequestBody SpecializationRequestDto dto) {
 
-        return ResponseEntity.ok(
-                specializationService.updateSpecialization(
-                        specializationId,
-                        dto));
+        return ResponseEntity.ok(specializationService.updateSpecialization(specializationId, dto));
     }
 
     @DeleteMapping("/{specializationId}")
-    public ResponseEntity<String> deleteSpecialization(
-            @PathVariable Integer specializationId) {
-
+    public ResponseEntity<String> deleteSpecialization(@PathVariable Integer specializationId) {
         specializationService.deleteSpecialization(specializationId);
-
-        return ResponseEntity.ok(
-                "Specialization deleted successfully.");
+        return ResponseEntity.ok("Specialization deleted successfully.");
     }
 }

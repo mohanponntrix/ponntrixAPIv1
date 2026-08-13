@@ -56,7 +56,7 @@ public class Hospital {
     @Column(name = "emergency_available")
     private Boolean emergencyAvailable;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "onboarding_status_id", referencedColumnName = "onboarding_status_id")
     private OnboardingStatus onboardingStatus;
 

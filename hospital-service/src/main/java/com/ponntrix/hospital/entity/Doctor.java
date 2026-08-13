@@ -39,7 +39,7 @@ public class Doctor {
     @Column(name = "doctor_email", nullable = false, unique = true)
     private String doctorEmail;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "qualification_id", referencedColumnName = "qualification_id")
     private Qualification qualification;
 

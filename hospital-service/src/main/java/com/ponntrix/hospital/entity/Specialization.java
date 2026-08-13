@@ -31,7 +31,7 @@ public class Specialization {
     @Column(name = "specialization_name", nullable = false)
     private String specializationName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "qualification_id",referencedColumnName = "qualification_id")
     private Qualification qualification;
 

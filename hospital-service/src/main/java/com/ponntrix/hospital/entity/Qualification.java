@@ -37,10 +37,7 @@ public class Qualification {
     private Integer updatedBy;
 
 
-    @OneToMany(
-            mappedBy = "qualification",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "qualification", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Doctor> doctors = new ArrayList<>();
 
     @PrePersist

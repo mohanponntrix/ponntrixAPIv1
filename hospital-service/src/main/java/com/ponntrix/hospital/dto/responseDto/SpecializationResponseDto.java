@@ -18,6 +18,8 @@ public class SpecializationResponseDto {
 
     private Integer qualificationId;
 
+    private String qualificationName;
+
     private OffsetDateTime createdAt;
 
     private OffsetDateTime updatedAt;

@@ -22,7 +22,7 @@ public class State {
     @Column(name = "state_name", nullable = false)
     private String stateName;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", referencedColumnName = "country_id")
     private Country country;
 
