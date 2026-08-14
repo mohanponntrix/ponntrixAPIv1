@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.service;
 
-import com.ponntrix.hospital.dto.requestDto.DoctorSpecializationRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DoctorSpecializationResponseDto;
+import com.ponntrix.hospital.dto.request.DoctorSpecializationRequestDto;
+import com.ponntrix.hospital.dto.response.DoctorSpecializationResponseDto;
 
 import java.util.List;
 

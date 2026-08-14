@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.service;
 
 import com.ponntrix.hospital.entity.EntityType;
-import com.ponntrix.hospital.dto.requestDto.DocumentsRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DocumentsResponseDto;
+import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
+import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;

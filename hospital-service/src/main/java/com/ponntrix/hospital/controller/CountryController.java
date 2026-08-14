@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.dto.requestDto.CountryRequestDto;
-import com.ponntrix.hospital.dto.responseDto.CountryResponseDto;
+import com.ponntrix.hospital.dto.request.CountryRequestDto;
+import com.ponntrix.hospital.dto.response.CountryResponseDto;
 import com.ponntrix.hospital.service.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

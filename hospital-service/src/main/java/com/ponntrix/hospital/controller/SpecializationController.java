@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.dto.requestDto.SpecializationRequestDto;
-import com.ponntrix.hospital.dto.responseDto.SpecializationResponseDto;
+import com.ponntrix.hospital.dto.request.SpecializationRequestDto;
+import com.ponntrix.hospital.dto.response.SpecializationResponseDto;
 import com.ponntrix.hospital.service.SpecializationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

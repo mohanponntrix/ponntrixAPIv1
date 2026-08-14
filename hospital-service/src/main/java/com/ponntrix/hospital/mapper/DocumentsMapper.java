@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 
-import com.ponntrix.hospital.dto.requestDto.DocumentsRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DocumentsResponseDto;
+import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
+import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
 import com.ponntrix.hospital.entity.Documents;
 
 public class DocumentsMapper {

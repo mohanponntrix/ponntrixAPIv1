@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 
-import com.ponntrix.hospital.dto.requestDto.SpecializationRequestDto;
-import com.ponntrix.hospital.dto.responseDto.SpecializationResponseDto;
+import com.ponntrix.hospital.dto.request.SpecializationRequestDto;
+import com.ponntrix.hospital.dto.response.SpecializationResponseDto;
 import com.ponntrix.hospital.entity.Qualification;
 import com.ponntrix.hospital.entity.Specialization;
 

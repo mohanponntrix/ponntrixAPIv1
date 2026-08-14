@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 
-import com.ponntrix.hospital.dto.requestDto.DoctorRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DoctorResponseDto;
+import com.ponntrix.hospital.dto.request.DoctorRequestDto;
+import com.ponntrix.hospital.dto.response.DoctorResponseDto;
 import com.ponntrix.hospital.entity.Doctor;
 
 public class DoctorMapper {

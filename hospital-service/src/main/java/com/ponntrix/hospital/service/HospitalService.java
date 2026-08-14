@@ -1,9 +1,9 @@
 package com.ponntrix.hospital.service;
 
-import com.ponntrix.hospital.dto.requestDto.DocumentsRequestDto;
-import com.ponntrix.hospital.dto.requestDto.HospitalRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DocumentsResponseDto;
-import com.ponntrix.hospital.dto.responseDto.HospitalResponseDto;
+import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
+import com.ponntrix.hospital.dto.request.HospitalRequestDto;
+import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
+import com.ponntrix.hospital.dto.response.HospitalResponseDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

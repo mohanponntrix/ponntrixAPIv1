@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 
-import com.ponntrix.hospital.dto.requestDto.StateRequestDto;
-import com.ponntrix.hospital.dto.responseDto.StateResponseDto;
+import com.ponntrix.hospital.dto.request.StateRequestDto;
+import com.ponntrix.hospital.dto.response.StateResponseDto;
 import com.ponntrix.hospital.entity.State;
 
 public class StateMapper {

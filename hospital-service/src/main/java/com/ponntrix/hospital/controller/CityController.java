@@ -2,8 +2,8 @@ package com.ponntrix.hospital.controller;
 
 import com.ponntrix.hospital.entity.City;
 import com.ponntrix.hospital.repository.CityRepository;
-import com.ponntrix.hospital.dto.requestDto.CityRequestDto;
-import com.ponntrix.hospital.dto.responseDto.CityResponseDto;
+import com.ponntrix.hospital.dto.request.CityRequestDto;
+import com.ponntrix.hospital.dto.response.CityResponseDto;
 import com.ponntrix.hospital.service.CityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
