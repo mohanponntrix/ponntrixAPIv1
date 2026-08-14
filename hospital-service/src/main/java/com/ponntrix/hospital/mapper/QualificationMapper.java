@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 
-import com.ponntrix.hospital.dto.requestDto.QualificationRequestDto;
-import com.ponntrix.hospital.dto.responseDto.QualificationResponseDto;
+import com.ponntrix.hospital.dto.request.QualificationRequestDto;
+import com.ponntrix.hospital.dto.response.QualificationResponseDto;
 import com.ponntrix.hospital.entity.Qualification;
 
 public class QualificationMapper {

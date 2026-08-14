@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 import com.ponntrix.hospital.entity.Address;
-import com.ponntrix.hospital.dto.requestDto.AddressRequestDto;
-import com.ponntrix.hospital.dto.responseDto.AddressResponseDto;
+import com.ponntrix.hospital.dto.request.AddressRequestDto;
+import com.ponntrix.hospital.dto.response.AddressResponseDto;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;

@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.dto.requestDto.QualificationRequestDto;
-import com.ponntrix.hospital.dto.responseDto.QualificationResponseDto;
+import com.ponntrix.hospital.dto.request.QualificationRequestDto;
+import com.ponntrix.hospital.dto.response.QualificationResponseDto;
 import com.ponntrix.hospital.service.QualificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

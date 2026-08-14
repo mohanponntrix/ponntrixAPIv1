@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.service;
 
-import com.ponntrix.hospital.dto.requestDto.StateRequestDto;
-import com.ponntrix.hospital.dto.responseDto.StateResponseDto;
+import com.ponntrix.hospital.dto.request.StateRequestDto;
+import com.ponntrix.hospital.dto.response.StateResponseDto;
 
 import java.util.List;
 

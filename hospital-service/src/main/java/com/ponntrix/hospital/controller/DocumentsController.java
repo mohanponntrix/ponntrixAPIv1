@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.controller;
 
 import com.ponntrix.hospital.entity.EntityType;
-import com.ponntrix.hospital.dto.requestDto.DocumentsRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DocumentsResponseDto;
+import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
+import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
 import com.ponntrix.hospital.service.DocumentsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;

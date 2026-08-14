@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.service;
 
-import com.ponntrix.hospital.dto.requestDto.QualificationRequestDto;
-import com.ponntrix.hospital.dto.responseDto.QualificationResponseDto;
+import com.ponntrix.hospital.dto.request.QualificationRequestDto;
+import com.ponntrix.hospital.dto.response.QualificationResponseDto;
 
 import java.util.List;
 

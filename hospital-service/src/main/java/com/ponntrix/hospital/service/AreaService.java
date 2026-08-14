@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.service;
 
 
-import com.ponntrix.hospital.dto.requestDto.AreaRequestDto;
-import com.ponntrix.hospital.dto.responseDto.AreaResponseDto;
+import com.ponntrix.hospital.dto.request.AreaRequestDto;
+import com.ponntrix.hospital.dto.response.AreaResponseDto;
 
 import java.util.List;
 

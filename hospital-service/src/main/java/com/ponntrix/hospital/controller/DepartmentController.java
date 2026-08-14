@@ -1,10 +1,8 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.repository.DepartmentRepository;
-import com.ponntrix.hospital.dto.requestDto.DepartmentRequestDto;
-import com.ponntrix.hospital.dto.responseDto.DepartmentResponseDto;
+import com.ponntrix.hospital.dto.request.DepartmentRequestDto;
+import com.ponntrix.hospital.dto.response.DepartmentResponseDto;
 import com.ponntrix.hospital.service.DepartmentsService;
-import com.ponntrix.hospital.service.S3Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

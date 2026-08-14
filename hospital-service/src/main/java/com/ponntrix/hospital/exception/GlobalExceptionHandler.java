@@ -1,6 +1,8 @@
 package com.ponntrix.hospital.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -8,82 +10,193 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.OffsetDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Global exception handler for the Hospital microservice.
+ *
+ * This class handles common exceptions thrown by all
+ * controllers and services in the application.
+ */
 @RestControllerAdvice
-public class GlobalExceptionHandler{
+@Slf4j
+public class GlobalExceptionHandler {
+
+    /**
+     * Handles resource-not-found errors.
+     */
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> handleResourceNotFoundException(
-            ResourceNotFoundException ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleResourceNotFound(
+            ResourceNotFoundException exception,
+            HttpServletRequest request
+    ) {
 
-        Map<String, Object> response = new HashMap<>();
+        log.error(
+                "Resource not found: {}",
+                exception.getMessage()
+        );
 
-        response.put("timestamp", OffsetDateTime.now());
-        response.put("status", HttpStatus.NOT_FOUND.value());
-        response.put("error", "Not Found");
-        response.put("message", ex.getMessage());
-        response.put("path", request.getRequestURI());
+        ErrorResponse response = new ErrorResponse();
 
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        response.setTimestamp(OffsetDateTime.now());
+        response.setStatus(HttpStatus.NOT_FOUND.value());
+        response.setError("NOT_FOUND");
+        response.setMessage(exception.getMessage());
+        response.setPath(request.getRequestURI());
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(response);
     }
 
-    // Duplicate Resource
+    /**
+     * Handles duplicate resource errors.
+     */
     @ExceptionHandler(DuplicateResourceException.class)
-    public ResponseEntity<Map<String, Object>> handleDuplicateResourceException(
-            DuplicateResourceException ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleDuplicateResource(
+            DuplicateResourceException exception,
+            HttpServletRequest request
+    ) {
 
-        Map<String, Object> response = new HashMap<>();
+        log.error(
+                "Duplicate resource: {}",
+                exception.getMessage()
+        );
 
-        response.put("timestamp", OffsetDateTime.now());
-        response.put("status", HttpStatus.CONFLICT.value());
-        response.put("error", "Conflict");
-        response.put("message", ex.getMessage());
-        response.put("path", request.getRequestURI());
+        ErrorResponse response = new ErrorResponse();
 
-        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+        response.setTimestamp(OffsetDateTime.now());
+        response.setStatus(HttpStatus.CONFLICT.value());
+        response.setError("DUPLICATE_RESOURCE");
+        response.setMessage(exception.getMessage());
+        response.setPath(request.getRequestURI());
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(response);
     }
 
-    // Validation Errors
+    /**
+     * Handles bad request errors.
+     */
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ErrorResponse> handleBadRequest(
+            BadRequestException exception,
+            HttpServletRequest request
+    ) {
+
+        log.error(
+                "Bad request: {}",
+                exception.getMessage()
+        );
+
+        ErrorResponse response = new ErrorResponse();
+
+        response.setTimestamp(OffsetDateTime.now());
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        response.setError("BAD_REQUEST");
+        response.setMessage(exception.getMessage());
+        response.setPath(request.getRequestURI());
+
+        return ResponseEntity
+                .badRequest()
+                .body(response);
+    }
+
+    /**
+     * Handles @Valid validation errors.
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, Object>> handleValidationException(
-            MethodArgumentNotValidException ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleValidationException(
+            MethodArgumentNotValidException exception,
+            HttpServletRequest request
+    ) {
 
-        Map<String, Object> errors = new HashMap<>();
+        log.error("Request validation failed");
 
-        ex.getBindingResult().getFieldErrors()
+        List<String> errors = new ArrayList<>();
+
+        exception.getBindingResult()
+                .getFieldErrors()
                 .forEach(error ->
-                        errors.put(error.getField(), error.getDefaultMessage()));
+                        errors.add(
+                                error.getField()
+                                        + ": "
+                                        + error.getDefaultMessage()
+                        )
+                );
 
-        Map<String, Object> response = new HashMap<>();
+        ErrorResponse response = new ErrorResponse();
 
-        response.put("timestamp", OffsetDateTime.now());
-        response.put("status", HttpStatus.BAD_REQUEST.value());
-        response.put("error", "Validation Failed");
-        response.put("messages", errors);
-        response.put("path", request.getRequestURI());
+        response.setTimestamp(OffsetDateTime.now());
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        response.setError("VALIDATION_ERROR");
+        response.setMessage(errors.toString());
+        response.setPath(request.getRequestURI());
 
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        return ResponseEntity
+                .badRequest()
+                .body(response);
     }
 
-    // Any Other Exception
+
+    /**
+     * Handles standard Java illegal argument errors.
+     */
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgument(
+            IllegalArgumentException exception,
+            HttpServletRequest request
+    ) {
+
+        log.error(
+                "Illegal argument: {}",
+                exception.getMessage()
+        );
+
+        ErrorResponse response = new ErrorResponse();
+
+        response.setTimestamp(OffsetDateTime.now());
+        response.setStatus(HttpStatus.BAD_REQUEST.value());
+        response.setError("BAD_REQUEST");
+        response.setMessage(exception.getMessage());
+        response.setPath(request.getRequestURI());
+
+        return ResponseEntity
+                .badRequest()
+                .body(response);
+    }
+
+    /**
+     * Handles unexpected exceptions.
+     */
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Map<String, Object>> handleException(
-            Exception ex,
-            HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleGenericException(
+            Exception exception,
+            HttpServletRequest request
+    ) {
 
-        Map<String, Object> response = new HashMap<>();
+        log.error(
+                "Unexpected error occurred",
+                exception
+        );
 
-        response.put("timestamp", OffsetDateTime.now());
-        response.put("status", HttpStatus.INTERNAL_SERVER_ERROR.value());
-        response.put("error", "Internal Server Error");
-        response.put("message", ex.getMessage());
-        response.put("path", request.getRequestURI());
+        ErrorResponse response = new ErrorResponse();
 
-        return new ResponseEntity<>(response,
-                HttpStatus.INTERNAL_SERVER_ERROR);
+        response.setTimestamp(OffsetDateTime.now());
+        response.setStatus(
+                HttpStatus.INTERNAL_SERVER_ERROR.value()
+        );
+        response.setError("INTERNAL_SERVER_ERROR");
+        response.setMessage(
+                "An unexpected error occurred"
+        );
+        response.setPath(request.getRequestURI());
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(response);
     }
 }
+

@@ -1,7 +1,7 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.dto.requestDto.AddressRequestDto;
-import com.ponntrix.hospital.dto.responseDto.AddressResponseDto;
+import com.ponntrix.hospital.dto.request.AddressRequestDto;
+import com.ponntrix.hospital.dto.response.AddressResponseDto;
 import com.ponntrix.hospital.entity.EntityType;
 import com.ponntrix.hospital.service.AddressService;
 import lombok.RequiredArgsConstructor;

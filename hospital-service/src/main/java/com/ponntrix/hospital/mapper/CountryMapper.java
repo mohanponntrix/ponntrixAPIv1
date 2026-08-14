@@ -1,8 +1,8 @@
 package com.ponntrix.hospital.mapper;
 
 import com.ponntrix.hospital.entity.Country;
-import com.ponntrix.hospital.dto.requestDto.CountryRequestDto;
-import com.ponntrix.hospital.dto.responseDto.CountryResponseDto;
+import com.ponntrix.hospital.dto.request.CountryRequestDto;
+import com.ponntrix.hospital.dto.response.CountryResponseDto;
 
 public class CountryMapper {
 

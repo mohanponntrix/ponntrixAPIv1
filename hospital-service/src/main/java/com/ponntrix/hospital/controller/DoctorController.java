@@ -1,8 +1,9 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.dto.requestDto.*;
-import com.ponntrix.hospital.dto.responseDto.DoctorResponseDto;
-import com.ponntrix.hospital.dto.responseDto.DoctorSpecializationResponseDto;
+import com.ponntrix.hospital.dto.request.DoctorRequestDto;
+import com.ponntrix.hospital.dto.request.DoctorSpecializationRequestDto;
+import com.ponntrix.hospital.dto.response.DoctorResponseDto;
+import com.ponntrix.hospital.dto.response.DoctorSpecializationResponseDto;
 import com.ponntrix.hospital.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
