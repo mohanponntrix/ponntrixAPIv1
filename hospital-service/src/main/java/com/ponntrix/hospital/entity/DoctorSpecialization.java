@@ -36,16 +36,12 @@ public class DoctorSpecialization {
             unique = true)
     private UUID doctorSpecializationsUUID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(
-            name = "doctor_id",
-            referencedColumnName = "doctor_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "doctor_id")
     private Doctor doctor;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(
-            name = "specialization_id",
-            referencedColumnName = "specialization_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "specialization_id", referencedColumnName = "specialization_id")
     private Specialization specialization;
 
     @Column(name = "is_primary")

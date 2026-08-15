@@ -1,6 +1,6 @@
 package com.ponntrix.hospital.repository;
 
-import com.ponntrix.hospital.entity.Area;
+import com.ponntrix.hospital.entity.locations.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

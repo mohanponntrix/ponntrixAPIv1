@@ -18,7 +18,7 @@ import java.util.UUID;
                         columnNames = {
                                 "entity_type",
                                 "entity_id",
-                                "document_name"
+                                "documents_name"
                         })
         })
 @Getter
@@ -38,8 +38,8 @@ public class Documents {
     @Column(name = "entity_type", nullable = false)
     private EntityType entityType;
 
-    @Column(name = "entity_id", nullable = false)
-    private Integer entityId;
+    @Column(name = "entity_id", nullable = false, columnDefinition = "uuid")
+    private UUID entityId;
 
     @Column(name = "documents_name", nullable = false)
     private String documentName;
@@ -91,9 +91,7 @@ public class Documents {
 
     @PreUpdate
     public void preUpdate() {
-
         updatedAt = OffsetDateTime.now();
-
     }
 
 }

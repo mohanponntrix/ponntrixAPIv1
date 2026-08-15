@@ -33,7 +33,6 @@ public class HospitalMapper {
 
         HospitalResponseDto dto = new HospitalResponseDto();
 
-        dto.setHospitalId(hospital.getHospitalId());
         dto.setHospitalUUID(hospital.getHospitalUUID());
         dto.setHospitalType(hospital.getHospitalType());
         dto.setHospitalName(hospital.getHospitalName());

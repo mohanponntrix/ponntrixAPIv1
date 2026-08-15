@@ -1,6 +1,6 @@
 package com.ponntrix.hospital.mapper;
 
-import com.ponntrix.hospital.entity.Address;
+import com.ponntrix.hospital.entity.locations.Address;
 import com.ponntrix.hospital.dto.request.AddressRequestDto;
 import com.ponntrix.hospital.dto.response.AddressResponseDto;
 import org.locationtech.jts.geom.Coordinate;
@@ -51,9 +51,7 @@ public class AddressMapper {
 
         AddressResponseDto dto = new AddressResponseDto();
 
-        dto.setAddressId(address.getAddressId());
         dto.setAddressUUID(address.getAddressUUID());
-
         dto.setEntityType(address.getEntityType());
         dto.setEntityId(address.getEntityId());
 

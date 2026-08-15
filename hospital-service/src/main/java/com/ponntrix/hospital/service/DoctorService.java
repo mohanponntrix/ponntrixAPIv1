@@ -1,13 +1,13 @@
 package com.ponntrix.hospital.service;
 
 import com.ponntrix.hospital.dto.request.DoctorRequestDto;
-import com.ponntrix.hospital.dto.request.DoctorSpecializationRequestDto;
+import com.ponntrix.hospital.dto.DoctorSpecializationDto;
 import com.ponntrix.hospital.dto.response.DoctorResponseDto;
-import com.ponntrix.hospital.dto.response.DoctorSpecializationResponseDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 public interface DoctorService {
 
@@ -18,20 +18,16 @@ public interface DoctorService {
 
     List<DoctorResponseDto> getAllDoctors();
 
-    DoctorResponseDto getDoctorById(Integer doctorId);
+    DoctorResponseDto getDoctorById(UUID doctorId);
 
     DoctorResponseDto updateDoctor(
-            Integer doctorId,
+            UUID doctorId,
             DoctorRequestDto dto,
             MultipartFile profilePic,
             MultipartFile digitalSignature) throws IOException;
 
-    void softDeleteDoctor(Integer doctorId, Integer updatedBy);
+    void deleteDoctor(UUID doctorId);
 
-    void deleteDoctor(Integer doctorId);
-
-    void restoreDoctor(Integer doctorId, Integer updatedBy);
-
-    List<DoctorSpecializationResponseDto> updateDoctorSpecializations(
-            Integer doctorId,
-            List<DoctorSpecializationRequestDto> specializations);}
+    List<DoctorSpecializationDto> updateDoctorSpecializations(
+            UUID doctorId,
+            List<DoctorSpecializationDto> specializations);}

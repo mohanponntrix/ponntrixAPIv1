@@ -3,7 +3,7 @@ package com.ponntrix.hospital.mapper;
 
 import com.ponntrix.hospital.dto.request.StateRequestDto;
 import com.ponntrix.hospital.dto.response.StateResponseDto;
-import com.ponntrix.hospital.entity.State;
+import com.ponntrix.hospital.entity.locations.State;
 
 public class StateMapper {
 

@@ -1,13 +1,13 @@
 package com.ponntrix.hospital.controller;
 
-import com.ponntrix.hospital.dto.request.DoctorSpecializationRequestDto;
-import com.ponntrix.hospital.dto.response.DoctorSpecializationResponseDto;
+import com.ponntrix.hospital.dto.DoctorSpecializationDto;
 import com.ponntrix.hospital.service.DoctorSpecializationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/doctor-specializations")
@@ -17,33 +17,33 @@ public class DoctorSpecializationController {
     private final DoctorSpecializationService doctorSpecializationService;
 
     @PostMapping("/create")
-    public ResponseEntity<DoctorSpecializationResponseDto> addSpecialization(
-            @RequestBody DoctorSpecializationRequestDto dto) {
+    public ResponseEntity<DoctorSpecializationDto> addSpecialization(
+            @RequestBody DoctorSpecializationDto dto) {
 
         return ResponseEntity.ok(
                 doctorSpecializationService.addSpecialization(dto));
     }
 
     @GetMapping
-    public List<DoctorSpecializationResponseDto>
+    public List<DoctorSpecializationDto>
     getAllDoctorSpecializations() {
         return doctorSpecializationService.getAllDoctorSpecializations();
     }
 
     @GetMapping("/{doctorId}")
-    public ResponseEntity<List<DoctorSpecializationResponseDto>>
+    public ResponseEntity<List<DoctorSpecializationDto>>
     getDoctorSpecializations(
-            @PathVariable Integer doctorId) {
+            @PathVariable UUID doctorId) {
 
         return ResponseEntity.ok(
                 doctorSpecializationService.getDoctorSpecializations(doctorId));
     }
 
     @PutMapping("/{doctorSpecializationId}")
-    public ResponseEntity<DoctorSpecializationResponseDto>
+    public ResponseEntity<DoctorSpecializationDto>
     updateSpecialization(
-            @PathVariable Integer doctorSpecializationId,
-            @RequestBody DoctorSpecializationRequestDto dto) {
+            @PathVariable UUID doctorSpecializationId,
+            @RequestBody DoctorSpecializationDto dto) {
 
         return ResponseEntity.ok(
                 doctorSpecializationService.updateSpecialization(
@@ -53,7 +53,7 @@ public class DoctorSpecializationController {
 
     @DeleteMapping("/{doctorSpecializationId}")
     public ResponseEntity<String> removeSpecialization(
-            @PathVariable Integer doctorSpecializationId) {
+            @PathVariable UUID doctorSpecializationId) {
 
         doctorSpecializationService.removeSpecialization(
                 doctorSpecializationId);

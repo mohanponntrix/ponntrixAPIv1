@@ -1,5 +1,8 @@
 package com.ponntrix.hospital.dto.response;
 
+import com.ponntrix.hospital.dto.DocumentsDto;
+import com.ponntrix.hospital.dto.HospitalFacilitiesDto;
+import com.ponntrix.hospital.dto.SocialLinksDto;
 import com.ponntrix.hospital.entity.HospitalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,8 +16,6 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 public class HospitalResponseDto {
-
-    private Integer hospitalId;
 
     private UUID hospitalUUID;
 
@@ -56,7 +57,11 @@ public class HospitalResponseDto {
 
     private Integer updatedBy;
 
-    private List<DocumentsResponseDto> documents;
+    private List<DocumentsDto> documents;
+
+    private List<HospitalFacilitiesDto> facilities;
+
+    private List<SocialLinksDto> socialLinks;
 
     private AddressResponseDto address;
 

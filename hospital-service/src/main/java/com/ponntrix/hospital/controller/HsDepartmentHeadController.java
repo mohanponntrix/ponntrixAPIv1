@@ -44,6 +44,7 @@ public class HsDepartmentHeadController {
             @ApiResponse(responseCode = "400", description = "Invalid request or database constraint violation"),
             @ApiResponse(responseCode = "409", description = "Department head assignment already exists")
             })
+    
     public ResponseEntity<HsDepartmentHeadResponseDTO> createDepartmentHead
     (@Valid @RequestBody HsDepartmentHeadRequestDTO requestDTO) {
 

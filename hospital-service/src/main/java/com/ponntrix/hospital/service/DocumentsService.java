@@ -1,8 +1,7 @@
 package com.ponntrix.hospital.service;
 
 import com.ponntrix.hospital.entity.EntityType;
-import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
-import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
+import com.ponntrix.hospital.dto.DocumentsDto;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -10,27 +9,28 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 public interface DocumentsService {
 
-    DocumentsResponseDto uploadDocument(DocumentsRequestDto dto, MultipartFile file) throws IOException;
+    DocumentsDto uploadDocument(DocumentsDto dto, MultipartFile file) throws IOException;
 
-    List<DocumentsResponseDto> getDocumentsByType(EntityType entityType);
+    List<DocumentsDto> getDocumentsByType(EntityType entityType);
 
-    List<DocumentsResponseDto> getDocument(EntityType entityType, Integer entityId);
+    List<DocumentsDto> getDocument(EntityType entityType, UUID entityId);
 
-    public List<DocumentsResponseDto> getAllDocuments();
+    public List<DocumentsDto> getAllDocuments();
 
-    DocumentsResponseDto updateDocument(
-            Integer documentsId,
-            DocumentsRequestDto dto,
+    DocumentsDto updateDocument(
+            UUID documentsId,
+            DocumentsDto dto,
             MultipartFile file) throws IOException;
 
-    DocumentsResponseDto verifyDocument(Integer documentsId);
+    DocumentsDto verifyDocument(UUID documentsId);
 
-    void deleteDocument(Integer documentsId);
+    void deleteDocument(UUID documentsId);
 
-    ResponseEntity<Resource> downloadDocument(Integer documentsId) throws IOException;
+    ResponseEntity<Resource> downloadDocument(UUID documentsId) throws IOException;
 
-    ResponseEntity<InputStreamResource> previewDocument(Integer documentsId);
+    ResponseEntity<InputStreamResource> previewDocument(UUID documentsId);
 }
