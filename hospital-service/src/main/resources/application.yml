@@ -33,8 +33,8 @@ spring:
       max-request-size: 10MB
 aws:
   s3:
-    bucket-name: jippys3bucket
+    bucket-name: bucketname
     region: ap-south-2
     credentials:
-      access-key: AKIAWTXNPPGRVJDK4XVX
-      secret-key: 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
+      access-key: "${AWS_ACCESS_KEY}"
+      secret-key: "${AWS_SECRET_KEY}"
