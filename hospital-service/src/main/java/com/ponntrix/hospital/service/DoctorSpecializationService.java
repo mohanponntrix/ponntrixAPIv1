@@ -1,24 +1,23 @@
 package com.ponntrix.hospital.service;
 
-import com.ponntrix.hospital.dto.request.DoctorSpecializationRequestDto;
-import com.ponntrix.hospital.dto.response.DoctorSpecializationResponseDto;
+import com.ponntrix.hospital.dto.DoctorSpecializationDto;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface DoctorSpecializationService {
 
-    DoctorSpecializationResponseDto addSpecialization(
-            DoctorSpecializationRequestDto dto);
+    DoctorSpecializationDto addSpecialization(
+            DoctorSpecializationDto dto);
 
-    List<DoctorSpecializationResponseDto> getDoctorSpecializations(
-            Integer doctorId);
+    List<DoctorSpecializationDto> getDoctorSpecializations(
+            UUID doctorId);
 
-    DoctorSpecializationResponseDto updateSpecialization(
-            Integer doctorSpecializationId,
-            DoctorSpecializationRequestDto dto);
+    DoctorSpecializationDto updateSpecialization(
+            UUID doctorSpecializationId,
+            DoctorSpecializationDto dto);
 
-    void removeSpecialization(
-            Integer doctorSpecializationId);
+    void removeSpecialization(UUID doctorSpecializationId);
 
-    List<DoctorSpecializationResponseDto> getAllDoctorSpecializations();
+    List<DoctorSpecializationDto> getAllDoctorSpecializations();
 }

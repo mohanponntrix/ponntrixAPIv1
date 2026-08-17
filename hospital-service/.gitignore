@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#For keeping AWS Credentials private
+src/main/resources/application.yml

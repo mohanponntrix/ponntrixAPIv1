@@ -36,7 +36,6 @@ public class Qualification {
     @Column(name = "updated_by")
     private Integer updatedBy;
 
-
     @OneToMany(mappedBy = "qualification", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Doctor> doctors = new ArrayList<>();
 

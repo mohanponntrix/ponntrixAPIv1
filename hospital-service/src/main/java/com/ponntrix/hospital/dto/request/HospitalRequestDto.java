@@ -1,5 +1,6 @@
 package com.ponntrix.hospital.dto.request;
 
+import com.ponntrix.hospital.dto.DocumentsDto;
 import com.ponntrix.hospital.entity.HospitalType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,6 +43,6 @@ public class HospitalRequestDto {
 
     private AddressRequestDto address;
 
-    private List<DocumentsRequestDto> documents;
+    private List<DocumentsDto> documents;
 
 }

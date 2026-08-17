@@ -28,7 +28,6 @@ public class DoctorMapper {
 
         DoctorResponseDto dto = new DoctorResponseDto();
 
-        dto.setDoctorId(doctor.getDoctorId());
         dto.setDoctorUUID(doctor.getDoctorUUID());
         dto.setFirstName(doctor.getFirstName());
         dto.setLastName(doctor.getLastName());

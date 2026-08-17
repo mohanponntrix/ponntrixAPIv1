@@ -1,5 +1,8 @@
 package com.ponntrix.hospital.dto.response;
 
+import com.ponntrix.hospital.dto.DoctorSpecializationDto;
+import com.ponntrix.hospital.dto.DocumentsDto;
+import com.ponntrix.hospital.dto.SocialLinksDto;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -9,8 +12,6 @@ import java.util.UUID;
 
 @Data
 public class DoctorResponseDto {
-
-    private Integer doctorId;
 
     private UUID doctorUUID;
 
@@ -46,10 +47,12 @@ public class DoctorResponseDto {
 
     private Integer updatedBy;
 
-    private List<DoctorSpecializationResponseDto> specializations;
+    private List<DoctorSpecializationDto> specializations;
 
-    private List<DocumentsResponseDto> documents;
+    private List<DocumentsDto> documents;
 
     private AddressResponseDto address;
+
+    private List<SocialLinksDto> socialLinks;
 
 }

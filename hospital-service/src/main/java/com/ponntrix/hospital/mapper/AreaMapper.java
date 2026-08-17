@@ -1,6 +1,6 @@
 package com.ponntrix.hospital.mapper;
 
-import com.ponntrix.hospital.entity.Area;
+import com.ponntrix.hospital.entity.locations.Area;
 import com.ponntrix.hospital.dto.request.AreaRequestDto;
 import com.ponntrix.hospital.dto.response.AreaResponseDto;
 

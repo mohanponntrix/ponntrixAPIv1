@@ -17,7 +17,7 @@ public class QualificationMapper {
         return qualification;
     }
 
-    // Entity -> Response DTO
+
     public static QualificationResponseDto toDto(Qualification qualification) {
 
         QualificationResponseDto dto = new QualificationResponseDto();

@@ -1,13 +1,12 @@
 package com.ponntrix.hospital.mapper;
 
-import com.ponntrix.hospital.dto.request.DoctorSpecializationRequestDto;
-import com.ponntrix.hospital.dto.response.DoctorSpecializationResponseDto;
+import com.ponntrix.hospital.dto.DoctorSpecializationDto;
 import com.ponntrix.hospital.entity.DoctorSpecialization;
 
 
 public class DoctorSpecializationMapper {
 
-    public static DoctorSpecialization toEntity(DoctorSpecializationRequestDto dto) {
+    public static DoctorSpecialization toEntity(DoctorSpecializationDto dto) {
 
         DoctorSpecialization doctorSpecialization = new DoctorSpecialization();
 
@@ -18,15 +17,13 @@ public class DoctorSpecializationMapper {
         return doctorSpecialization;
     }
 
-    public static DoctorSpecializationResponseDto toDto(DoctorSpecialization entity) {
+    public static DoctorSpecializationDto toDto(DoctorSpecialization entity) {
 
-        DoctorSpecializationResponseDto dto = new DoctorSpecializationResponseDto();
+        DoctorSpecializationDto dto = new DoctorSpecializationDto();
 
-        dto.setDoctorSpecializationsId(entity.getDoctorSpecializationsId());
         dto.setDoctorSpecializationsUUID(entity.getDoctorSpecializationsUUID());
-
         if (entity.getDoctor() != null) {
-            dto.setDoctorId(entity.getDoctor().getDoctorId());
+            dto.setDoctorId(entity.getDoctor().getDoctorUUID());
             dto.setDoctorName(entity.getDoctor().getFirstName());
         }
         if (entity.getSpecialization() != null) {

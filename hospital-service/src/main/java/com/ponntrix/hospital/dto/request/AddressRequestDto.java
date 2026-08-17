@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -12,7 +14,7 @@ public class AddressRequestDto {
 
     private EntityType entityType;
 
-    private Integer entityId;
+    private UUID entityId;
 
     private Integer countryId;
 

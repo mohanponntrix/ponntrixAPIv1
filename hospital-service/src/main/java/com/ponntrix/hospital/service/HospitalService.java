@@ -1,13 +1,13 @@
 package com.ponntrix.hospital.service;
 
-import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
+import com.ponntrix.hospital.dto.DocumentsDto;
 import com.ponntrix.hospital.dto.request.HospitalRequestDto;
-import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
 import com.ponntrix.hospital.dto.response.HospitalResponseDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 public interface HospitalService {
 
@@ -19,22 +19,22 @@ public interface HospitalService {
 
     List<HospitalResponseDto> getAllHospitals();
 
-    HospitalResponseDto getHospitalById(Integer hospitalId);
+    HospitalResponseDto getHospitalById(UUID hospitalUUID);
 
     HospitalResponseDto updateHospital(
-            Integer hospitalId,
+            UUID hospitalId,
             HospitalRequestDto dto,
             MultipartFile logo,
             MultipartFile coverImage,
             List<MultipartFile> documentFiles) throws IOException;
 
 
-    DocumentsResponseDto uploadHospitalDocument(
-            Integer hospitalId,
-            DocumentsRequestDto dto,
+    DocumentsDto uploadHospitalDocument(
+            UUID hospitalId,
+            DocumentsDto dto,
             MultipartFile file
     ) throws IOException;
 
-    void deleteHospital(Integer hospitalId);
+    void deleteHospital(UUID hospitalId);
 
 }

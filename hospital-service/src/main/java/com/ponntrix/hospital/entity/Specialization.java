@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.OffsetDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(
@@ -49,10 +48,8 @@ public class Specialization {
 
     @PrePersist
     public void prePersist() {
-
         createdAt = OffsetDateTime.now();
         updatedAt = OffsetDateTime.now();
-
     }
 
     @PreUpdate

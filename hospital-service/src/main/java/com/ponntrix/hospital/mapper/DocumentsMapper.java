@@ -1,12 +1,11 @@
 package com.ponntrix.hospital.mapper;
 
 
-import com.ponntrix.hospital.dto.request.DocumentsRequestDto;
-import com.ponntrix.hospital.dto.response.DocumentsResponseDto;
+import com.ponntrix.hospital.dto.DocumentsDto;
 import com.ponntrix.hospital.entity.Documents;
 
 public class DocumentsMapper {
-    public static Documents toEntity(DocumentsRequestDto dto) {
+    public static Documents toEntity(DocumentsDto dto) {
 
         Documents document = new Documents();
 
@@ -22,11 +21,10 @@ public class DocumentsMapper {
         return document;
     }
 
-    public static DocumentsResponseDto toDto(Documents documents) {
+    public static DocumentsDto toDto(Documents documents) {
 
-        DocumentsResponseDto dto = new DocumentsResponseDto();
+        DocumentsDto dto = new DocumentsDto();
 
-        dto.setDocumentsId(documents.getDocumentsId());
         dto.setDocumentsUUID(documents.getDocumentsUUID());
         dto.setEntityType(documents.getEntityType());
         dto.setEntityId(documents.getEntityId());

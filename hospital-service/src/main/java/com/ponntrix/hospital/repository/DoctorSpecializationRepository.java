@@ -6,18 +6,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface DoctorSpecializationRepository
-        extends JpaRepository<DoctorSpecialization, Integer> {
+public interface DoctorSpecializationRepository extends JpaRepository<DoctorSpecialization, Long> {
 
-    List<DoctorSpecialization> findByDoctorDoctorId(Integer doctorId);
+    Optional<DoctorSpecialization> findByDoctorSpecializationsUUID(UUID doctorSpecializationsUUID);
+
+    List<DoctorSpecialization> findByDoctorDoctorUUID(UUID doctorId);
 
     Optional<DoctorSpecialization>
-    findByDoctorDoctorIdAndIsPrimaryTrue(Integer doctorId);
+    findByDoctorDoctorUUIDAndIsPrimaryTrue(UUID doctorId);
 
-    boolean existsByDoctorDoctorIdAndSpecializationSpecializationId(
-            Integer doctorId,
+    boolean existsByDoctorDoctorUUIDAndSpecializationSpecializationId(
+            UUID doctorId,
             Integer specializationId);
 
     Optional<DoctorSpecialization>
@@ -29,5 +31,5 @@ public interface DoctorSpecializationRepository
             Integer doctorId,
             Integer specializationId);
 
-    void deleteByDoctorDoctorId(Integer doctorId);
+    void deleteByDoctorDoctorUUID(UUID doctorId);
 }

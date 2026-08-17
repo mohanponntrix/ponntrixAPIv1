@@ -13,13 +13,11 @@ import java.util.UUID;
 @NoArgsConstructor
 public class AddressResponseDto {
 
-    private Integer addressId;
-
     private UUID addressUUID;
 
-    private EntityType entityType;
+    private UUID entityId;
 
-    private Integer entityId;
+    private EntityType entityType;
 
     // Country
     private Integer countryId;
